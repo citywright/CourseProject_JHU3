@@ -1,0 +1,92 @@
+---
+title: "README"
+author: "Jonathan Wright"
+date: "26 July 2015"
+output: html_document
+---
+
+This run_analysis() function is designed to sort and summarize a dataset obtained from
+smartphone motion sensors.  It was developed as the major course project for "Getting 
+and Cleaning Data" on [Coursera](www.coursera.com), the third course in the Data Science 
+track from Johns Hopkins University.  This function was developed by Jonathan Wright 
+using [RStudio](www.rstudio.com).
+
+It is my own work and has been completed in accordance with the [Coursera Honor Code](www.coursera.org/about/terms/honorcode).
+
+### Data Source
+
+The input data for this function is related to Human Activity Recognition of from the
+University of California Irvine Machine Learning Respository.  The zip file can be 
+downloaded at the following location:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml].
+Irvine, CA: University of California, School of Information and Computer Science.
+
+The data must be downloaded and unzipped into the working directory prior to running
+this function.  
+
+### R Packages
+
+This function uses the following R packages:
+
+* plyr
+* reshape2
+
+These must be downloaded and installed prior to running the function.
+
+### Description
+
+This function follows the following steps:
+
+0. Reads the data in from the unzipped files, which must be in a directory called
+"UCI HAR Dataset" located in the working directory.  
+
+      * features - Variable names for the processed sensor data
+        
+      * activityLabels - Table linking number factors with named factors for the 
+      six different activities in the 
+
+1. Merges the three parts of the training dataset and test datasets together.  These
+are merged into a single dataset later, in Step 3 (after the numberic factors for 
+activities are converted to plain english named factors). For now, the data is left in
+three pieces representing:
+
+      * data - This is the sensor data for each record from the files named "X".
+        
+      * activityCodes - These are the numeric factor variables for the different 
+      actions perfomred, from the files named "Y".  They are converted to named 
+      factor vatriables in Step 2.
+
+      * subject - This is the list of the subjects (people conducting the activities)
+      for each record, from the files named "subject".
+
+2. Filters out only data variables with that correspond to means or standard 
+deviations.  This is done using the grep() function, which searches the list of data 
+variable names (features) and returns the index value of names that contain the either
+string segments "mean" or "std" in their name.  These are stored in a vector called 
+"filter", which is used here and again later in Step 4.
+
+3. Matches the activity name (activityLabels) with the corresponding numberic factor in
+(activityCodes) using the join() function from the plyr package.  This function keeps 
+the order of the original data intact, as opposed to the base merge() function which
+reorders it.  Using the join() function allows this match to be done before the three
+pieces of the dataset are merged.  The full dataset (called "combined") is finally 
+created in this step.
+
+4. Sets the column names for the combined dataset.  This uses the filtered index numbers
+to bring across only the names of the variables that passed through the grep filter in 
+Step 2.
+
+5. Uses the melt() and cast() functions from the reshape2 package to summarize the data
+into only the mean values for each subject/activity pair.  The melt() function creates
+a long tall dataset based around subject/activity pairs.  The cast() function then 
+recasts it as a wide dataset with only the mean values for each variable.  The resulting
+dataset is written to a file called "summary_output.txt" that has this basic shape:
+
+      Subject   | Activity  | Variables
+      --------- | --------- | -----------
+      Number ID | Name      | mean values
+      
+### End     

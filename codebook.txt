@@ -1,0 +1,168 @@
+# Codebook
+
+This codebook corresponds to the file "summary_output.txt" created by the run_analysis.R
+function designed to sort and summarize a dataset obtained from smartphone motion 
+sensors. It was developed as the major course project for "Getting and Cleaning Data" on
+Coursera: www.coursera.com, the third course in the Data Science track from Johns Hopkins
+University.  
+
+This codebook was developed by Jonathan Wright.  It is my own work and has been completed
+in accordance with the Coursera Honor Code: www.coursera.org/about/terms/honorcode.
+
+
+### Input Source
+
+The input data for this function is related to Human Activity Recognition of from the
+University of California Irvine Machine Learning Respository.  The variable names from
+the original dataset have been kept in the summarised dataset for clarity.  A complete
+description of the original variables and terminology can be found at:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml].
+Irvine, CA: University of California, School of Information and Computer Science.
+
+The README.txt file included with the data notes that the values of each variable have
+been normalised so that all values are bounded within [-1,1].  This means there are no
+units for these variables, as normalising removes units and creates a ratio.
+
+
+### List of Variables
+
+
+Column  Identifiers
+======        ========================================================================
+
+1	"subject"	Numeric ID of subject performing each activity
+			Factor variable with values: 1 - 30
+
+2	"activity"      Name of activity being performed by subject in each test
+			Factor variable with values:
+			* WALKING
+			* WALKING_UPSTAIRS
+			* WALKING_DOWNSTAIRS
+			* SITTING
+			* STANDING
+			* LAYING
+
+
+Column  Body Acceleration Vector Values - Time Domain Signals
+======	=============================================================
+
+3	"tBodyAcc-mean()-X"     	Mean on X-Axis
+4	"tBodyAcc-mean()-Y"     	Mean on Y-Axis
+5	"tBodyAcc-mean()-Z"     	Mean on Z-Axis
+
+6	"tBodyAcc-std()-X"      	Standard Deviation on X-Axis
+7	"tBodyAcc-std()-Y"		Standard Deviation on Y-Axis
+8	"tBodyAcc-std()-Z"     		Standard Deviation on Z-Axis
+
+
+Column  Gravity Acceleration Vector Values - Time Domain Signals
+======	=============================================================
+
+9	"tGravityAcc-mean()-X"  	Mean on X-Axis
+10	"tGravityAcc-mean()-Y"  	Mean on Y-Axis
+11	"tGravityAcc-mean()-Z"  	Mean on Z-Axis
+
+12	"tGravityAcc-std()-X"   	Standard Deviation on X-Axis
+13	"tGravityAcc-std()-Y"   	Standard Deviation on Y-Axis
+14	"tGravityAcc-std()-Z"   	Standard Deviation on Z-Axis
+
+
+Column  Jerk Signal Vector Values - Time Domain Signals
+======	=============================================================
+
+15	"tBodyAccJerk-mean()-X" 	Mean on X-Axis
+16	"tBodyAccJerk-mean()-Y" 	Mean on Y-Axis
+17	"tBodyAccJerk-mean()-Z" 	Mean on Z-Axis
+
+18	"tBodyAccJerk-std()-X"  	Standard Deviation on X-Axis
+19	"tBodyAccJerk-std()-Y"  	Standard Deviation on Y-Axis
+20	"tBodyAccJerk-std()-Z"  	Standard Deviation on Z-Axis
+
+21	"tBodyGyro-mean()-X"    	Mean on X-Axis
+22	"tBodyGyro-mean()-Y"    	Mean on Y-Axis
+23	"tBodyGyro-mean()-Z"    	Mean on Z-Axis
+
+24	"tBodyGyro-std()-X"     	Standard Deviation on X-Axis
+25	"tBodyGyro-std()-Y"     	Standard Deviation on Y-Axis
+26	"tBodyGyro-std()-Z"     	Standard Deviation on Z-Axis
+
+27	"tBodyGyroJerk-mean()-X" 	Mean on X-Axis
+28	"tBodyGyroJerk-mean()-Y" 	Mean on Y-Axis
+29	"tBodyGyroJerk-mean()-Z" 	Mean on Z-Axis
+
+30	"tBodyGyroJerk-std()-X" 	Standard Deviation on X-Axis
+31	"tBodyGyroJerk-std()-Y" 	Standard Deviation on Y-Axis
+32	"tBodyGyroJerk-std()-Z" 	Standard Deviation on Z-Axis
+
+
+Column  Jerk Signal Vector Magnitudes - Time Domain using Euclidean norm
+======	================================================================
+
+33	"tBodyAccMag-mean()"    	Mean
+34	"tBodyAccMag-std()"     	Standard Deviation
+
+35	"tGravityAccMag-mean()" 	Mean
+36	"tGravityAccMag-std()"  	Standard Deviation
+
+37	"tBodyAccJerkMag-mean()" 	Mean
+38	"tBodyAccJerkMag-std()" 	Standard Deviation
+
+39	"tBodyGyroMag-mean()"   	Mean
+40	"tBodyGyroMag-std()"    	Standard Deviation
+
+41	"tBodyGyroJerkMag-mean()" 	Mean
+42	"tBodyGyroJerkMag-std()" 	Standard Deviation
+
+
+CColumn  Body Acceleration Vector Values - Frequency Domain Signals
+======	=============================================================
+
+43	"fBodyAcc-mean()-X"     	Mean on X-Axis
+44	"fBodyAcc-mean()-Y"     	Mean on Y-Axis
+45	"fBodyAcc-mean()-Z"     	Mean on Z-Axis
+
+46	"fBodyAcc-std()-X"      	Standard Deviation on X-Axis
+47	"fBodyAcc-std()-Y"      	Standard Deviation on Y-Axis
+48	"fBodyAcc-std()-Z"      	Standard Deviation on Z-Axis
+
+
+Column  Jerk Signal Vector Values - Frequency Domain Signals
+======	=============================================================
+
+49	"fBodyAccJerk-mean()-X" 	Mean on X-Axis
+50	"fBodyAccJerk-mean()-Y"    	Mean on Y-Axis
+51	"fBodyAccJerk-mean()-Z"     	Mean on Z-Axis
+
+52	"fBodyAccJerk-std()-X"  	Standard Deviation on X-Axis
+53	"fBodyAccJerk-std()-Y"    	Standard Deviation on Y-Axis
+54	"fBodyAccJerk-std()-Z"        	Standard Deviation on Z-Axis
+
+55	"fBodyGyro-mean()-X"    	Mean on X-Axis
+56	"fBodyGyro-mean()-Y"    	Mean on Y-Axis
+57	"fBodyGyro-mean()-Z"    	Mean on Z-Axis
+
+58	"fBodyGyro-std()-X"     	Standard Deviation on X-Axis
+59	"fBodyGyro-std()-Y"     	Standard Deviation on Y-Axis
+60	"fBodyGyro-std()-Z"     	Standard Deviation on Z-Axis
+
+
+Column  Jerk Signal Vector Magnitudes - Frequency Domain using Euclidean norm
+======	=====================================================================
+
+61	"fBodyAccMag-mean()"    	Mean
+62	"fBodyAccMag-std()"     	Standard Deviation
+
+63	"fBodyBodyAccJerkMag-mean()" 	Mean
+64	"fBodyBodyAccJerkMag-std()" 	Standard Deviation
+
+65	"fBodyBodyGyroMag-mean()" 	Mean
+66	"fBodyBodyGyroMag-std()" 	Standard Deviation
+
+67	"fBodyBodyGyroJerkMag-mean()" 	Mean
+68	"fBodyBodyGyroJerkMag-std()" 	Standard Deviation
+
+
+# End
